@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario</title>
+    <style>
+        #mario {
+            position: relative;
+            width: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            top: 150px;
+            transition: all 2.5s;
+            cursor: pointer;
+        }
+        #status {
+            position:absolute;
+            top: 400px;
+            left: 630px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <img src="./mario2.png" id="mario">
+</div>
+<span id="status">Nhấn vào mario</span>
+</body>
+<script>
+    function playsound(){
+        const audio = new Audio('mario.mp3');
+        audio.play();
+    }
+    const Mario = document.querySelector('#mario');
+    const status = document.querySelector('#status');
+    Mario.onclick = () =>{
+        playsound();
+        Mario.style.top = '-30px';
+        setTimeout(() =>{
+            Mario.style.top = '150px';
+        },1000);
+    }
+    Mario.onmouseover =() =>{
+        Mario.style.width = '250px';
+        status.innerText ="Hello các bạn";
+    }
+    Mario.onmouseleave = () => {
+        Mario.style.width = '200px';
+        status.innerText ="Nhấn vào mario";
+    }
+</script>
+</html>
